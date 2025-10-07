@@ -1,40 +1,34 @@
 #ifndef NDEBUG
 #include <vld.h> // Visual Leak Detector, útil en modo Debug para detectar fugas de memoria
 #endif
-
 #include "raylib.h"
+#include "Ventana.h"
+
+using namespace std;
+
+int anchoVentana = 900;
+int altoVentana = 600;
 
 int main(void)
 {
-    // Inicializamos una ventana de 800x450 píxeles con un título personalizado
-    InitWindow(800, 450, "Proyecto MAVI");
+    //Init ventana
+    InitWindow(anchoVentana, altoVentana, "Carta de Presentacion - Barbara Tobares");
 
-    // Configuramos el framerate deseado (opcional, pero recomendado)
-    SetTargetFPS(60);
+    //Se crea el objeto ventana con el mensaje principal y los mensajes secudarios
+    Ventana ventana("Barbara Tobares", "Que le dijo un arbol a otro?", "Nada, los arboles no hablan!");
 
-    Color fondo = { 110, 100, 215, 255 };//color violeta personalizado
-    Color texto = DARKPURPLE;
-
-    // Bucle principal del juego (se repite hasta que se cierre la ventana)
+    // Bucle principal - print de mensaje y deteccion de tecla presionada
     while (!WindowShouldClose())
     {
-        // Iniciamos la etapa de dibujo
+        //Control para tecla
+        ventana.EntradaBoton();
+
+        //Print del contenido de la ventana
         BeginDrawing();
-
-        // Limpiamos la pantalla 
-        ClearBackground(fondo);
-
-		// Dibujamos un texto centrado, aca damos la posicion, el tamaño y el color
-        DrawText("Felicitaciones, ejecutaste tu primer proyecto con Raylib!!!", 90, 200, 20, texto);
-
-        // Dibujamos un rectángulo a modo decorativo
-        DrawRectangle(80, 190, 650, 40, Fade(DARKGREEN, 0.5f)); // Fondo semitransparente para resaltar el texto
-
-        // Finalizamos el dibujo
+        ventana.CargaVentana();
         EndDrawing();
     }
 
-    // Cerramos la ventana y liberamos recursos
     CloseWindow();
 
     return 0;
