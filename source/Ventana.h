@@ -1,5 +1,7 @@
+#pragma once
 #include <iostream>
 #include "raylib.h"
+#include "Pelota.h"
 
 using namespace std;
 
@@ -20,4 +22,5 @@ public:
 	Ventana(string n1, string m1, string m2);
 	void EntradaBoton();
 	void CargaVentana();
+	void InfoPelota(const Pelota& p);
 };

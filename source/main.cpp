@@ -3,19 +3,21 @@
 #endif
 #include "raylib.h"
 #include "Ventana.h"
+#include "Pelota.h"
 
 using namespace std;
 
-int anchoVentana = 900;
-int altoVentana = 600;
+int anchoVentana = 1024;
+int altoVentana = 768;
 
 int main(void)
 {
     //Init ventana
     InitWindow(anchoVentana, altoVentana, "Carta de Presentacion - Barbara Tobares");
 
-    //Se crea el objeto ventana con el mensaje principal y los mensajes secudarios
+    //Creacion de objetos
     Ventana ventana("Barbara Tobares", "Que le dijo un arbol a otro?", "Nada, los arboles no hablan!");
+    Pelota pelota;
 
     // Bucle principal - print de mensaje y deteccion de tecla presionada
     while (!WindowShouldClose())
@@ -26,6 +28,9 @@ int main(void)
         //Print del contenido de la ventana
         BeginDrawing();
         ventana.CargaVentana();
+        ventana.InfoPelota(pelota);
+        pelota.DibujarPelota();
+        pelota.MoverPelota();
         EndDrawing();
     }
 

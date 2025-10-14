@@ -21,9 +21,15 @@
     <ClCompile Include="Ventana.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="Pelota.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ventana.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pelota.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
